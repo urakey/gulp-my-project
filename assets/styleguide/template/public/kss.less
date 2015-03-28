@@ -1,0 +1,342 @@
+/* kss.less v1.2.1 | MIT License: akey */
+
+@import 'markdown';
+
+// ------------------------------------------------------------------------------
+//   @group mixin
+// ------------------------------------------------------------------------------
+.svgBackground {
+  background-color: #fbfbfb;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4JyBoZWlnaHQ9JzE2JyB2aWV3Qm94PScwIDAgNSAxMCc+Cgk8cGF0aCBkPSdNMCwwbDUsNWwtNSw1bS0xLC02bDEsMWwtMSwxTTQsLTFsNiw2bC02LDYnIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjZmZmZmZmJyBzdHJva2Utd2lkdGg9JzAuODgnLz4KPC9zdmc+');
+}
+
+// ------------------------------------------------------------------------------
+//   @group override
+// ------------------------------------------------------------------------------
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#kss-wrapper {
+  margin: 0 auto;
+  width: 980px;
+}
+
+#kss-main {
+  float: right;
+  margin-bottom: 40px;
+  width: 740px;
+}
+
+#kss-nav {
+  float: left;
+  width: 200px;
+  font-family: @md-font-headers;
+  line-height: 1.6;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    border: #eee 1px solid;
+    list-style: none;
+
+    li + li { border-top: #eee 1px solid; }
+
+    a {
+      display: block;
+      padding: 10px;
+      background: #f9f9f9;
+      text-decoration: none;
+
+      &:hover   {
+        background: white;
+        color: @md-colors-link-hover;
+      }
+
+      &.selected {
+        border-left: @md-colors-foreground 3px solid;
+        background: white;
+        color: @md-colors-foreground;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#kss-header {
+  margin-bottom: 40px;
+  padding: 30px 0;
+  border-bottom: #eee 1px solid;
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 1.3;
+  }
+}
+
+#kss-footer {
+  clear: both;
+  padding: 20px 0;
+  border-top: #eee 1px solid;
+  text-align: center;
+  font-family: @md-font-headers;
+}
+
+.kss-overview,
+.kss-mod-single,
+.kss-box {
+  // TODO: いろいろまとめられそうだけど一旦放置
+
+  & > h1 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 2rem * 0.950;
+    margin: 1.5rem 0;
+  }
+
+  h2 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    padding-left: 10px;
+    border-left: #111 3px solid;
+  }
+
+  h3 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  h4 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 1.2rem * 0.950;
+    margin: 1.5rem 0 1rem;
+  }
+
+  h5 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 1.2rem * 0.900;
+    margin: 1.5rem 0 1rem;
+  }
+
+  h6 {
+    font-family: @md-font-headers;
+    font-weight: bold;
+    font-size: 1.2rem * 0.850;
+    margin: 1.5rem 0 1rem;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  ul {
+    list-style: disc;
+    margin: 20px 0;
+    padding-left: 2em;
+  }
+
+  ol {
+    list-style: decimal;
+    margin: 20px 0;
+    padding-left: 2em;
+  }
+
+  blockquote {
+    margin: 20px 0;
+  }
+
+  code {
+    margin: 0 5px;
+    padding: 3px;
+    border: #eee 1px solid;
+    background: #f9f9f9;
+    text-align: right;
+    font-size: 0.95rem;
+    color: #ff0055;
+  }
+
+  pre {
+    margin:  20px 0;
+    border: #eee 1px solid;
+    background: white !important;
+    padding: 15px;
+
+    code {
+      border: none;
+      background: none;
+    }
+  }
+
+  hr {
+    margin: 3rem 0;
+    border-top: none;
+    border-right: none;
+    border-bottom: #ccc 1px dotted;
+    border-left: none;
+    height: 0;
+  }
+}
+
+.kss-mod-single {
+  background: #f9f9f9;
+  padding: 10px 20px;
+}
+
+.kss-box {
+  padding: 0 20px;
+  line-height: 1.8;
+  border-bottom: #eee 3px solid;
+  background: #fefefe;
+  .svgBackground;
+
+  & + .kss-markup {
+    border-top: none;
+  }
+}
+
+.kss-mod-list {
+  width:100%;
+}
+
+.kss-mod-desc {
+  position: relative;
+  padding: 10px 125px 10px 20px;
+  border-bottom: #eee 1px dotted;
+  font-family: @md-font-headers;
+
+  p { margin: 0; }
+}
+
+.kss-mod-name {
+  font-size: .95rem;
+
+  position: absolute;
+  top: -1px;
+  right: -1px;
+
+  margin: 0;
+  padding: 3px;
+  padding: 5px 15px;
+
+  text-align: right;
+
+  color: #f05;
+  border: #eee 1px solid;
+  background: #f9f9f9;
+}
+
+.kss-mod-example {
+  position: relative;
+  overflow-x: auto;
+  padding: 40px 20px;
+
+  & + .kss-mod-desc {
+    border-top:#eee 1px solid;
+  }
+}
+
+.kss-markup {
+  border-top:#eee 3px solid;
+}
+
+.kss-title { font-size: 2rem * 0.950; margin: 1em 0; }
+
+.kss-depth-1 > h1 { font-size: 1rem * 0.950; }
+.kss-depth-2 > h1 { font-size: 1rem * 0.900; }
+.kss-depth-3 > h1 { font-size: 1rem * 0.850; }
+.kss-depth-4 > h1 { font-size: 1rem * 0.800; }
+.kss-depth-5 > h1 { font-size: 1rem * 0.750; }
+.kss-depth-6 > h1 { font-size: 1rem * 0.700; }
+
+.kss-depth-1,
+.kss-depth-2,
+.kss-depth-3,
+.kss-depth-4,
+.kss-depth-5,
+.kss-depth-6 {
+  margin: 40px 0;
+  border: #eee 1px solid;
+
+  & > h1 {
+    margin: 0;
+    padding: 10px 20px;
+    background: @md-colors-foreground;
+    color: white;
+  }
+}
+
+// ------------------------------------------------------------------------------
+//   @group prettyprint.js styling
+// ------------------------------------------------------------------------------
+/* Pretty printing styles. Used with prettify.js. */
+.prettyprint{
+    margin: 0;
+    padding: 30px 15px;
+    background: #f9f9f9 !important;
+    word-wrap: normal;
+    white-space: pre;
+    overflow-x: scroll;
+
+    code{
+      margin: 0;
+    }
+  }
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #111111 }  /* plain text */
+
+@media screen {
+  .str { color: #739200 }  /* string content */
+  .kwd { color: #739200 }  /* a keyword */
+  .com { color: #999999 }  /* a comment */
+  .typ { color: #ff0055 }  /* a type name */
+  .lit { color: #538192 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #111111 }
+  .tag { color: #111111 }  /* a markup tag name */
+  .atn { color: #739200 }  /* a markup attribute name */
+  .atv { color: #ff0055 }  /* a markup attribute value */
+  .dec { color: #111111 }  /* a declaration */
+  .var { color: #111111 }  /* a variable name */
+  .fun { color: #538192; }  /* a function name */
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+
+/* Put a border around prettyprinted code snippets. */
+/*pre.prettyprint { padding: 2px; border: 1px solid #888 }*/
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }

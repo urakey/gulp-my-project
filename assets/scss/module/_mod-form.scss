@@ -1,0 +1,25 @@
+//=============================================================================
+//  Module: Form
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Form: 汎用的なフォーム
+//
+// 汎用的に使用するフォーム
+//
+// Markup:
+// <form class="{$modifiers}">
+//   <h3 class="ttl-lv3">性別<span class="c_require">必須</span></h3>
+//   <p>
+//     <label><input type="radio" name="gender" value="2" checked><span>女性</span></label>
+//     <label><input type="radio" name="gender" value="1"><span>男性</span></label>
+//   </p>
+// </form>
+//
+// Styleguide 7.1
+.form-basicType {
+
+  label  + label { margin-left: 35px; }
+  span { vertical-align: middle; }
+}

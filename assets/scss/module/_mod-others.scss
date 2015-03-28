@@ -1,0 +1,38 @@
+//=============================================================================
+//  Module: Others
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Other: 擬似要素アイコン * インラインブロックタイプ
+//
+// `::&before` でアイコンを挿入
+//
+// .icon-like-gry.png  - ほげ
+// .icon-like-org.png  - ほげ
+// .icon-pad-gry.png   - ほげ
+// .icon-pad-org.png   - ほげ
+// .icon-share-gry.png - ほげ
+// .icon-share-org.png - ほげ
+//
+// Markup:
+// <span class="{$modifiers}">Text</span>
+//
+// Styleguide 10.1
+@for $i from 1 through length($icons) {
+  $sprite: nth($icons, $i);
+  $name: nth($sprite, 5);
+
+  .icon-#{$name} {
+
+    &::before {
+      display: inline-block;
+      margin-right: 0.2em;
+      content: '';
+      vertical-align: middle;
+
+      @extend %sprite-icon;
+      @include sprite-crop($sprite);
+    }
+  }
+}

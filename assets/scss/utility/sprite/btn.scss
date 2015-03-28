@@ -1,0 +1,28 @@
+﻿@import "bourbon";
+@import "neat";
+$dir-imgs-sprite: '/shared/imgs/sprite/';
+$btn-search-org: 49, 49, -4, -4, 'search-org';
+$btn-search-gry: 49, 49, -61, -4, 'search-gry';
+$btn-next-org: 49, 49, -4, -61, 'next-org';
+$btn-next-gry: 49, 49, -61, -61, 'next-gry';
+$btn-menu: 49, 49, -118, -4, 'menu';
+$btn-back-org: 49, 49, -118, -61, 'back-org';
+$btn-back-gry: 49, 49, -4, -118, 'back-gry';
+
+$btns: $btn-search-org, $btn-search-gry, $btn-next-org, $btn-next-gry, $btn-menu, $btn-back-org, $btn-back-gry;
+
+// Sprite Images: $btn
+$btn-image: $dir-imgs-sprite + 'btn.png';
+$btn-image-retina: $dir-imgs-sprite + 'btn@2x.png';
+
+// Extend: %sprite-btn
+%sprite-btn {
+  background-image: url($btn-image);
+  background-repeat: no-repeat;
+  @include hide-text;
+
+  @include hidpi(2) {
+    background-image: url($btn-image-retina);
+    background-size: 171px auto;
+  }
+}

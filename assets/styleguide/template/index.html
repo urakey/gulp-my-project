@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>MyProject: Styleguide</title>
+<meta name="description" content="">
+<meta name="generator" content="kss-node">
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic,700italic|Inconsolata' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="public/kss.css">
+<link rel="stylesheet" href="public/styleguide.css">
+</head>
+<body>
+<div id="kss-wrapper">
+  <header id="kss-header">
+    <h1>MyProject: Styleguide</h1>
+  </header>
+  <aside id="kss-nav">
+    <nav><ul>
+      <li><a href="index.html">Overview</a></li>
+      {{#eachRoot}}
+        <li><a href="section-{{reference}}.html">{{reference}}: {{header}}</a></li>
+      {{/eachRoot}}
+    </ul></nav>
+  </aside><!--/ #kss-nav -->
+  <div role="main" id="kss-main">
+    <article id="kss-content" class="kss-body">
+      {{#if overview}}
+        <div class="kss-overview">
+          {{html overview}}
+        </div>
+      {{else}}
+        {{!
+          Find each section, in order.
+          If there's no markup or modifiers supplied, use a Markdown-only
+          layout instead.
+
+          The "root" element comes first in this loop, and can be detected using
+          the "#whenDepth 1" block as seen below.
+        }}
+        {{#eachSection rootNumber}}
+          {{#whenDepth 1}}
+            <h1 class="kss-title"><span class="kss-ref">{{ reference }}.0</span> - {{ header }}</h1>
+          {{else}}
+           <section class="kss-depth-{{ refDepth }}">
+            <h1 class="kss-title"><span class="kss-ref">{{ reference }}</span> - {{ header }}</h1>
+          {{/whenDepth}}
+            {{#ifAny markup modifiers}}
+                <div class="kss-box">{{html description}}</div>
+                <div class="kss-mod-list">
+                  <div class="kss-mod-desc">
+                    <p>Default styling</p>
+                  </div>
+                  <div class="kss-mod-example">
+                    {{modifierMarkup}}
+                  </div>
+                {{#eachModifier}}
+                  <div class="kss-mod-desc">
+                      {{html description}}
+                      <code class="kss-mod-name">{{name}}</code>
+                  </div>
+                  <div class="kss-mod-example">
+                    {{modifierMarkup}}
+                  </div>
+                {{/eachModifier}}
+                </div>
+                <div class="kss-markup">
+                  <pre class="prettyprint lang-html">{{markup}}</pre>
+                </div>
+            {{else}}
+                {{#if description}}
+                  <div class="kss-mod-single">{{html description}}</div>
+                {{/if}}
+            {{/ifAny}}
+          {{#whenDepth 1}} {{else}}
+            </section>
+          {{/whenDepth}}
+        {{/eachSection}}
+      {{/if}}
+    </article>
+  </div><!--/ #kss-main -->
+  <footer id="kss-footer"><small>Powered by <a href="http://github.com/hughsk/kss-node">kss-node</a>.</small></footer>
+</div><!--/ #kss-wrapper -->
+
+<script src="public/kss.js"></script>
+<script src="public/prettify.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var sideNavSelected = function() {
+      var pathnames = location.pathname.split('/');
+      var pathname = pathnames[pathnames.length - 1];
+
+      $('#kss-nav').find('a').removeClass('selected');
+      $('#kss-nav').find('a').each(function() {
+        if ($(this).attr('href') == pathname) $(this).addClass('selected');
+      });
+    };
+
+    var sidebarAdjust = function() {
+      // Match footer/body height
+      var height = Math.max($('#kss-nav').height(), $('#kss-main').height());
+
+      if ($(window).width() <= 768) {
+        $('#kss-main, #kss-nav').height('auto');
+      }
+      else {
+        $('#kss-main, #kss-nav').height(height);
+      }
+    };
+
+    $(window).resize(sidebarAdjust);
+    $(window).scroll(sidebarAdjust);
+    sidebarAdjust();
+    sideNavSelected();
+
+    // Ensure code blocks are highlighted properly...
+    $('pre').addClass('prettyprint');
+    prettyPrint();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@import "bourbon";
+@import "neat";
+$dir-imgs-sprite: '/shared/imgs/sprite/';
+$icon-share-org: 17, 17, -4, -4, 'share-org';
+$icon-share-gry: 17, 17, -29, -4, 'share-gry';
+$icon-pad-org: 17, 17, -4, -29, 'pad-org';
+$icon-pad-gry: 17, 17, -29, -29, 'pad-gry';
+$icon-like-org: 17, 17, -54, -4, 'like-org';
+$icon-like-gry: 17, 17, -54, -29, 'like-gry';
+
+$icons: $icon-share-org, $icon-share-gry, $icon-pad-org, $icon-pad-gry, $icon-like-org, $icon-like-gry;
+
+// Sprite Images: $icon
+$icon-image: $dir-imgs-sprite + 'icon.png';
+$icon-image-retina: $dir-imgs-sprite + 'icon@2x.png';
+
+// Extend: %sprite-icon
+%sprite-icon {
+  background-image: url($icon-image);
+  background-repeat: no-repeat;
+  @include hide-text;
+
+  @include hidpi(2) {
+    background-image: url($icon-image-retina);
+    background-size: 75px auto;
+  }
+}

@@ -1,0 +1,42 @@
+//=============================================================================
+//  Utility: Sprite
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Sprite: %sprite-obj
+//
+// 下記のディレクトリ内の画像を glue を介してスプライト画像に変換。
+// Retina サイズのみ入れておけば OK。
+//
+// - `/asset/utility/sprite/imgs/*`
+//
+// `@extend sprite-obj;` として使用する。
+// スプライト画像の crop には shared ディレクトリ内の mixin を使用する。
+//
+// ### 生成している extend の一覧
+//
+// - `%sprite-obj`
+// - `%sprite-btn`
+// - `%sprite-icon`
+//
+// ```
+// $sprite: 'ttl_' + $name;
+//
+// selector {
+//   @extend %sprite-obj;
+//   @include sprite-crop($obj-logo);
+// }
+// ```
+//
+// Styleguide 94.1
+
+// ----------------------------------------------------------------------------
+@import "sprite/obj";
+@import "sprite/btn";
+@import "sprite/icon";
+
+.logo {
+  @extend %sprite-obj;
+  @include sprite-crop($obj-logo);
+}

@@ -1,0 +1,27 @@
+@import "bourbon";
+@import "neat";
+$dir-imgs-sprite: '/shared/imgs/sprite/';
+
+
+{%- for image in images %}
+${{ name }}-{{ image.filename|lower|replace('.png', '') }}: {{ image.width }}, {{ image.height }}, {{ image.x }}, {{ image.y }}, '{{ image.filename|lower|replace('.png', '') }}';
+{%- endfor %}
+
+${{ name }}s: {%- for image in images %} ${{ name }}-{{ image.filename|lower|replace('.png', '') }}{%- if image.last %};{% else %},{% endif %}{%- endfor %}
+
+// Sprite Images: ${{ name }}
+${{ name }}-image: $dir-imgs-sprite + '{{ sprite_filename }}';
+${{ name }}-image-retina: $dir-imgs-sprite + '{{ sprite_filename|lower|replace('.png', '@2x.png') }}';
+
+// Extend: %sprite-{{ name }}
+%sprite-{{ name }} {
+  background-image: url(${{ name }}-image);
+  background-repeat: no-repeat;
+  @include hide-text;
+
+  @include hidpi(2) {
+    background-image: url(${{ name }}-image-retina);
+    background-size: {{ width ~ ('px' if width) }} auto;
+  }
+}
+

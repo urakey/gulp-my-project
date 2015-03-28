@@ -1,0 +1,40 @@
+//=============================================================================
+//  Utility: Extend
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Extend: %clearfix
+//
+// clearfixが必要な箇所で使用する
+//
+// ```
+// selector {
+//   @extend %clearfix;
+// }
+// ```
+//
+// Styleguide 93.1
+%clearfix {
+  @include clearfix;
+}
+
+// ----------------------------------------------------------------------------
+
+// Extend: %radius
+//
+// サイト共通の角丸
+//
+// ```
+// selector {
+//   @extend %radius;
+// }
+// ```
+//
+// Styleguide 93.2
+%radius {
+  @include border-top-radius($radius);
+  @include border-right-radius($radius);
+  @include border-bottom-radius($radius);
+  @include border-left-radius($radius);
+}

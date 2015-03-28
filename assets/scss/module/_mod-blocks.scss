@@ -1,0 +1,41 @@
+//=============================================================================
+//  Module: Blocks
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Block: .blk-shareBtns
+//
+// .blk-shareBtns - シェアボタンブロック
+//
+// Markup:
+// <ul class="blk-shareBtns">
+//   <li class="line"></li>
+//   <li class="twitter"></li>
+//   <li class="facebook"></li>
+// </ul><!-- /.blk-shareBtns -->
+//
+// Styleguide 4.1
+.blk-shareBtns {
+  overflow: hidden;
+  height: 75px;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+  }
+
+  .line {
+    width: 36px;
+  }
+
+  .twitter {
+    width: 71px;
+  }
+
+  .facebook {
+    width: 69px;
+  }
+}

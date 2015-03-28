@@ -1,0 +1,58 @@
+//=============================================================================
+//  Variables
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+// Bourbon
+$prefix-for-webkit:    false; // autoprefixer
+$prefix-for-mozilla:   false; // autoprefixer
+$prefix-for-microsoft: false; // autoprefixer
+$prefix-for-opera:     false; // autoprefixer
+$prefix-for-spec:      false; // autoprefixer
+
+// ----------------------------------------------------------------------------
+// Dirctory
+$dir-imgs: '/shared/imgs/';
+
+// ----------------------------------------------------------------------------
+// Colors:
+
+// http://flatuicolors.com
+$c-blugrn1: #1dd2af;
+$c-blugrn2: #16a085;
+$c-grn1: #2ecc71;
+$c-grn2: #27ae60;
+$c-blu1: #3498db;
+$c-blu2: #2980b9;
+$c-pur1: #9b59b6;
+$c-pur2: #8e44ad;
+$c-nvy1: #34495e;
+$c-nvy2: #2c3e50;
+$c-yel1: #f1c40f;
+$c-yel2: #f39c12;
+$c-org1: #e67e22;
+$c-org2: #d35400;
+$c-red1: #e74c3c;
+$c-red2: #c0392b;
+
+$c-cloud:  #ecf0f1;
+$c-silver: #bdc3c7;
+$c-concrete: #95a5a6;
+$c-asbestos: #7f8c8d;
+
+// ----------------------------------------------------------------------------
+// Fonts
+$font-serif:     'ヒラギノ明朝 Pro W3', 'Hiragino Mincho ProN', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+$font-sansserif: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic Pro ProN', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+$font-monospace: 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, monospace;
+
+// ----------------------------------------------------------------------------
+// Content width
+
+// ----------------------------------------------------------------------------
+// Base Setting
+$base-font: sans-serif;
+$base-font-size: 14;
+$base-link-color: #556ba4;
+
+$radius: 5px;

@@ -1,0 +1,85 @@
+//=============================================================================
+//  Utility: Mixin
+//=============================================================================
+
+// ----------------------------------------------------------------------------
+
+// Mixin: sprite-width
+//
+// スプライト画像の幅を設定
+//
+// - @param $sprite [require] - スプライト配列（Jinja テンプレートで出力）
+//
+// ```
+// selector {
+//   @include sprite-width($sprite);
+// }
+// ```
+//
+// Styleguide 92.1
+@mixin sprite-width($sprite) {
+  width: unquote(nth($sprite, 1) + 'px');
+}
+
+// ----------------------------------------------------------------------------
+
+// Mixin: sprite-height
+//
+// スプライト画像の高さを設定
+//
+// - @param $sprite [require] - スプライト配列（Jinja テンプレートで出力）
+//
+// ```
+// selector {
+//   @include sprite-height($sprite);
+// }
+// ```
+//
+// Styleguide 92.2
+@mixin sprite-height($sprite) {
+  height: unquote(nth($sprite, 2) + 'px');
+}
+
+// ----------------------------------------------------------------------------
+
+// Mixin: sprite-position
+//
+// スプライト画像のポジションを設定
+//
+// - @param $sprite [require] - スプライト配列（Jinja テンプレートで出力）
+//
+// ```
+// selector {
+//   @include sprite-position($sprite);
+// }
+// ```
+//
+// Styleguide 92.3
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: unquote(nth($sprite, 3) + 'px');
+  $sprite-offset-y: unquote(nth($sprite, 4) + 'px');
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+// ----------------------------------------------------------------------------
+
+// Mixin: sprite-crop
+//
+// スプライト画像ををクロップする
+//
+// - @param $sprite [require] - スプライト配列（Jinja テンプレートで出力）
+//
+// ```
+// selector {
+//   @include sprite-crop($sprite);
+// }
+// ```
+//
+// Styleguide 92.4
+@mixin sprite-crop($sprite) {
+  overflow: hidden;
+
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @include sprite-position($sprite);
+}

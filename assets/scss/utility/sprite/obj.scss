@@ -1,0 +1,22 @@
+﻿@import "bourbon";
+@import "neat";
+$dir-imgs-sprite: '/shared/imgs/sprite/';
+$obj-logo: 116, 22, -4, -4, 'logo';
+
+$objs: $obj-logo;
+
+// Sprite Images: $obj
+$obj-image: $dir-imgs-sprite + 'obj.png';
+$obj-image-retina: $dir-imgs-sprite + 'obj@2x.png';
+
+// Extend: %sprite-obj
+%sprite-obj {
+  background-image: url($obj-image);
+  background-repeat: no-repeat;
+  @include hide-text;
+
+  @include hidpi(2) {
+    background-image: url($obj-image-retina);
+    background-size: 124px auto;
+  }
+}
